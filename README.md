@@ -1,5 +1,5 @@
 # LightWeight-BoilerPlate
--------------------------------------------------------------------------------------------------
+
 Deneme yapabilmek için;
 
 * MicRosoft Visual Studio'dan Server Explorer açılıp kendi local db'nizi eklemeniz ve
@@ -7,8 +7,7 @@ Deneme yapabilmek için;
 
 gerekmektedir.
 
-** DB için gerekli sql dosyalarını SQL Scripts klasörü içerisinde bulabilirsiniz.
--------------------------------------------------------------------------------------------------
+###### **DB için gerekli sql dosyalarını SQL Scripts klasörü içerisinde bulabilirsiniz.**
 
 Proje içerisinde debug yapmak isterseniz aşağıdaki iki yeri öneririm:
 * Global.asax içerisindeki Application_Start'a breakpoint koyarak ya da 
