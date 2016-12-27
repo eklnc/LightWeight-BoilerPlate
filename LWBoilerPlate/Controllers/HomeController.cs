@@ -1,6 +1,8 @@
 ﻿using System.Web.Mvc;
 using LWBoilerPlate.ComponentContracts;
 using LWBoilerPlate.Models;
+using LWBoilerPlate.Models.BaseModels;
+using LWBoilerPlate.Models.ViewModels;
 
 namespace LWBoilerPlate.Controllers
 {

@@ -2,6 +2,8 @@
 using Castle.DynamicProxy;
 using Castle.MicroKernel;
 using LWBoilerPlate.AspectContracts;
+using LWBoilerPlate.Models;
+using LWBoilerPlate.Models.Entities;
 
 namespace LWBoilerPlate.AspectLayers.Aspects
 {
@@ -16,16 +18,33 @@ namespace LWBoilerPlate.AspectLayers.Aspects
 
         public void Intercept(IInvocation invocation)
         {
-            var exceptionHandlerManager = _kernel.Resolve<IExceptionHandlerManager>();
+            //var exceptionHandlerManager = _kernel.Resolve<IExceptionHandlerManager>();
+            //var loggingHandlerManager = _kernel.Resolve<ILoggingHandlerManager>();
 
-            try
+            using (var context = new LWBoilerPlateContext())
             {
-                invocation.Proceed();
-            }
-            catch (Exception ex)
-            {
-                // exception'ın loglanması 
-                exceptionHandlerManager.HandleException(ex);
+                using (var dbContextTransaction = context.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        LWBoilerPlateContext.SetContext(context);
+
+                        invocation.Proceed();
+
+                        context.SaveChanges();
+
+                        dbContextTransaction.Commit();
+
+                        //loggingHandlerManager.LogToDb(invocation);
+                    }
+                    catch (Exception ex)
+                    {
+                        dbContextTransaction.Rollback();
+
+                        // exception'ın loglanması 
+                        //exceptionHandlerManager.HandleException(ex);
+                    }
+                }
             }
         }
     }

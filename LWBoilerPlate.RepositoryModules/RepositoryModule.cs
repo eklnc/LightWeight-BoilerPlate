@@ -1,5 +1,6 @@
 ﻿using Castle.Windsor;
 using LWBoilerPlate.AspectLayers.Aspects;
+using LWBoilerPlate.Models.Entities;
 using LWBoilerPlate.ModuleContracts;
 using LWBoilerPlate.RepositoryContracts;
 using LWBoilerPlate.RepositoryLayers;

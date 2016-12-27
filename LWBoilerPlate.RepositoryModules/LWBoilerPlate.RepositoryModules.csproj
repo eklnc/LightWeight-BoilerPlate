@@ -56,6 +56,10 @@
       <Project>{2F87AF2F-5D64-4A59-B224-4D82F3C26F52}</Project>
       <Name>LWBoilerPlate.AspectLayers</Name>
     </ProjectReference>
+    <ProjectReference Include="..\LWBoilerPlate.Models\LWBoilerPlate.Models.csproj">
+      <Project>{73A997E9-B802-4761-807B-C39EF37B438F}</Project>
+      <Name>LWBoilerPlate.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LWBoilerPlate.ModuleContracts\LWBoilerPlate.ModuleContracts.csproj">
       <Project>{65278A14-6032-4D31-8B98-EBFFD2077A27}</Project>
       <Name>LWBoilerPlate.ModuleContracts</Name>

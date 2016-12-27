@@ -16,19 +16,19 @@ namespace LWBoilerPlate.AspectLayers.Aspects
 
         public void Intercept(IInvocation invocation)
         {
-            var exceptionHandlerManager = _kernel.Resolve<IExceptionHandlerManager>();
-            var loggingHandlerManager = _kernel.Resolve<ILoggingHandlerManager>();
+            //var exceptionHandlerManager = _kernel.Resolve<IExceptionHandlerManager>();
+            //var loggingHandlerManager = _kernel.Resolve<ILoggingHandlerManager>();
 
             try
             {
                 invocation.Proceed();
 
-                loggingHandlerManager.LogToDb(invocation);
+                //loggingHandlerManager.LogToDb(invocation);
             }
             catch (Exception ex)
             {
                 // exception'ın loglanması (redis)
-                exceptionHandlerManager.HandleException(ex);
+                //exceptionHandlerManager.HandleException(ex);
             }
         }
     }
